@@ -20,10 +20,13 @@ const renderGames = (filter = '') => {
 
   filteredGames.forEach((game) => {
     const gameEl = document.createElement('li');
-    let text = game.info.name + ' - ';
-    for (const key in game.info) {
+    const { info } = game;
+    // let { getUpercasedName } = game;
+    // getUppercasedName = getUppercasedName.bind(game);
+    let text = game.getUppercasedName() + ' - ';
+    for (const key in info) {
       if (key !== 'name') {
-        text = text + `Description: ${key} - Price: ${game.info[key]}`;
+        text = text + `Description: ${key} - Price: ${info[key]}`;
       }
     }
     gameEl.textContent = text;
@@ -50,7 +53,10 @@ const addGameHandler = () => {
       name,
       [extraName]: extraValue,
     },
-    id: Math.random(),
+    id: Math.random().toString(),
+    getUppercasedName: function () {
+      return this.info.name.toUpperCase();
+    },
   };
 
   games.push(newGame);
