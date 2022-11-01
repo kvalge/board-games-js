@@ -12,8 +12,39 @@ class Product {
   }
 }
 
-const productList = {
-  products: [
+class ProductItem {
+  constructor(product) {
+    this.product = product;
+  }
+
+  addToCart() {
+    alert('New ' + this.product.title + ' game is added');
+    console.log('Adding product to cart');
+    console.log(this.product);
+  }
+
+  render() {
+    const prodEl = document.createElement('li');
+    prodEl.className = 'product-item';
+    prodEl.innerHTML = `
+    <div>
+    <img src="${this.product.imageUrl}" alt="${this.product.title}">
+    <div class="product-item__content">
+    <h2>${this.product.title}</h2>
+    <h3>\€${this.product.price}</h3>
+    <p>${this.product.description}</p>
+    <button>Add to Cart</button>
+    </div>
+    </div>
+    `;
+    const addCartButton = prodEl.querySelector('button');
+    addCartButton.addEventListener('click', this.addToCart.bind(this));
+    return prodEl;
+  }
+}
+
+class ProductList {
+  products = [
     new Product(
       'Chess',
       'https://cdn.pixabay.com/photo/2020/01/26/10/33/chess-4794265_1280.jpg',
@@ -26,29 +57,22 @@ const productList = {
       'Played with gaming pieces, commonly known as dominoes. Each domino is a rectangular tile, usually with a line dividing its face into two square ends. Each end is marked with a number of spots or is blank. The backs of the tiles in a set are indistinguishable, either blank or having some common design. The gaming pieces make up a domino set, sometimes called a deck or pack. The traditional European domino set consists of 28 tiles, featuring all combinations of spot counts between zero and six.',
       19.99
     ),
-  ],
+  ];
+
+  constructor() {}
+
   render() {
     const renderHook = document.getElementById('app');
     const prodList = document.createElement('ui');
     prodList.className = 'product-list';
     for (const prod of this.products) {
-      const prodEl = document.createElement('li');
-      prodEl.className = 'product-item';
-      prodEl.innerHTML = `
-      <div>
-      <img src="${prod.imageUrl}" alt="${prod.title}">
-      <div class="product-item__content">
-      <h2>${prod.title}</h2>
-      <h3>\€${prod.price}</h3>
-      <p>${prod.description}</p>
-      <button>Add to Cart</button>
-      </div>
-      </div>
-      `;
+      const productItem = new ProductItem(prod);
+      const prodEl = productItem.render();
       prodList.append(prodEl);
     }
     renderHook.append(prodList);
-  },
-};
+  }
+}
 
+const productList = new ProductList();
 productList.render();
