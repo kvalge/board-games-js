@@ -103,10 +103,11 @@ button:active {
 }
 
 .cart {
-  margin: 5rem 2rem;
+  margin: 2rem 14rem;
+  width: 64%;
   border: 2px solid navy;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
 }
