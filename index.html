@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Working with Objects</title>
+    <title>Board Games</title>
     <link rel="stylesheet" href="assets/styles/app.css" />
     <script src="assets/scripts/app.js" defer></script>
     <script src="assets/scripts/objects.js" defer></script>
   </head>
   <body>
-    <div id="title">
+    <div>
       <header>Board Games</header>
     </div>
     <div id="app"></div>
@@ -19,21 +19,21 @@
         <label for="name">New game</label>
         <input type="text" id="name" />
       </div>
-      <div class="inline-controls">
-        <div class="control">
-          <label for="extra-name">Description</label>
-          <input type="text" id="extra-name" />
-        </div>
-        <div class="control">
-          <label for="extra-value">Price</label>
-          <input type="text" id="extra-value" />
-        </div>
+      <div class="control">
+        <label for="extra-name">Description</label>
+        <input type="text" id="extra-name" />
+      </div>
+      <div class="control">
+        <label for="extra-value">Price</label>
+        <input type="text" id="extra-value" />
       </div>
       <button id="add-game-btn">Add Game</button>
     </section>
     <section id="filter" class="card">
+      <div class="control">
       <label for="filter-name">Filter by Name</label>
       <input type="text" id="filter-name" />
+    </div>
       <button id="search-btn">Search</button>
     </section>
     <ul id="game-list" class="card"></ul>
