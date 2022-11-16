@@ -23,11 +23,11 @@ class ShoppingCart {
   render() {
     const cartEl = document.createElement('section');
     cartEl.innerHTML = `
-    <h2>Total: \€${0}</h2>
+    <h3>Total: \€${0}</h3>
     <button>Order Now!</button>
     `;
     cartEl.className = 'cart';
-    this.totalOutput = cartEl.querySelector('h2');
+    this.totalOutput = cartEl.querySelector('h3');
     return cartEl;
   }
 }
