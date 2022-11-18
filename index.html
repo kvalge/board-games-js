@@ -5,37 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Board Games</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/styles/app.css" />
     <script src="assets/scripts/app.js" defer></script>
     <script src="assets/scripts/objects.js" defer></script>
   </head>
   <body>
     <div>
-      <header>Board Games</header>
+      <header>
+        <span>
+          <h1>Board Games</h1>
+          <button><a href='add-game.html'>Add game</a></button>
+        </span>
+      </header>
     </div>
     <div id="app"></div>
-    <section id="user-input" class="card">
-      <div class="control">
-        <label for="name">New game</label>
-        <input type="text" id="name" />
-      </div>
-      <div class="control">
-        <label for="extra-name">Description</label>
-        <input type="text" id="extra-name" />
-      </div>
-      <div class="control">
-        <label for="extra-value">Price</label>
-        <input type="text" id="extra-value" />
-      </div>
-      <button id="add-game-btn">Add Game</button>
-    </section>
-    <section id="filter" class="card">
-      <div class="control">
-      <label for="filter-name">Filter by Name</label>
-      <input type="text" id="filter-name" />
+    <div>
+      <footer>
+        <p>
+          Like board games?
+          <a href="https://en.wikipedia.org/wiki/Board_game">More info</a>
+        </p>
+      </footer>
     </div>
-      <button id="search-btn">Search</button>
-    </section>
-    <ul id="game-list" class="card"></ul>
   </body>
 </html>

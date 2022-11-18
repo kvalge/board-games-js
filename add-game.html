@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Board Games</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles/app.css" />
+    <script src="assets/scripts/app.js" defer></script>
+    <script src="assets/scripts/objects.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <header>
+        <span>
+          <h1>Board Games</h1>
+          <button><a href='index.html'>To main page</a></button>
+        </span>
+      </header>
+    </div>
+    <section id="user-input" class="card">
+      <div class="control">
+        <label for="name">New game</label>
+        <input type="text" id="name" />
+      </div>
+      <div class="control">
+        <label for="extra-name">Description</label>
+        <input type="text" id="extra-name" />
+      </div>
+      <div class="control">
+        <label for="extra-value">Price</label>
+        <input type="text" id="extra-value" />
+      </div>
+      <button id="add-game-btn">Add Game</button>
+    </section>
+    <section id="filter" class="card">
+      <div class="control">
+        <label for="filter-name">Filter by Name</label>
+        <input type="text" id="filter-name" />
+      </div>
+      <button id="search-btn">Search</button>
+    </section>
+    <ul id="game-list" class="card"></ul>
+
+    <div>
+      <footer>
+        <p>Like board games? <a href='https://en.wikipedia.org/wiki/Board_game'>More info</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style scoped>
+  header {
+  margin: 1rem auto;
+  max-width: 100%;
+  padding: 2rem;
+  height: 130px;
+  background-color: navy;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+header span {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header button {
+  display: inline-block;
+}
+</style>
