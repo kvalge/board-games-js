@@ -18,10 +18,16 @@
       <header>
         <span>
           <h1>Board Games</h1>
-          <button><a href='index.html'>To main page</a></button>
+          <nav>
+            <ul>
+              <li><a href='index.html'>Board Games</a></li>
+              <li><a href='add-game.html'>Add game</a></li>
+            </ul>
+          </nav>
         </span>
       </header>
     </div>
+    <section>
     <section id="user-input" class="card">
       <div class="control">
         <label for="name">New game</label>
@@ -45,37 +51,16 @@
       <button id="search-btn">Search</button>
     </section>
     <ul id="game-list" class="card"></ul>
-
+  </section>
     <div>
       <footer>
-        <p>Like board games? <a href='https://en.wikipedia.org/wiki/Board_game'>More info</a></p>
+        <p>
+          Like board games?
+          <a href="https://en.wikipedia.org/wiki/Board_game" target='_blank'>More info here</a>
+        </p>
+        <a href='mailto:someone@somedomain.com?Subject = contact'>Contact us</a>
       </footer>
     </div>
   </body>
 </html>
 
-<style scoped>
-  header {
-  margin: 1rem auto;
-  max-width: 100%;
-  padding: 2rem;
-  height: 130px;
-  background-color: navy;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-}
-
-header span {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header button {
-  display: inline-block;
-}
-</style>
