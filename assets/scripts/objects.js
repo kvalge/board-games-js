@@ -36,13 +36,13 @@ const renderGames = (filter = '') => {
 
 const addGameHandler = () => {
   const name = document.getElementById('name').value;
-  const extraName = document.getElementById('extra-name').value;
-  const extraValue = document.getElementById('extra-value').value;
+  const description = document.getElementById('description').value;
+  const price = document.getElementById('price').value;
 
   if (
     name.trim() === '' ||
-    extraName.trim() === '' ||
-    extraValue.trim() === ''
+    description.trim() === '' ||
+    price.trim() === ''
   ) {
     alert('Invalid input!');
     return;
@@ -51,7 +51,7 @@ const addGameHandler = () => {
   const newGame = {
     info: {
       name,
-      [extraName]: extraValue,
+      [description]: price,
     },
     id: Math.random().toString(),
     getUppercasedName: function () {
