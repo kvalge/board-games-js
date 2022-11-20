@@ -21,13 +21,15 @@ const renderGames = (filter = '') => {
   filteredGames.forEach((game) => {
     const gameEl = document.createElement('li');
     const { info } = game;
-    // let { getUpercasedName } = game;
-    // getUppercasedName = getUppercasedName.bind(game);
-    let text = game.getUppercasedName() + ' - ';
+
+    let text = '';
     for (const key in info) {
-      if (key !== 'name') {
-        text = text + `Description: ${key} - Price: ${info[key]}`;
-      }
+      text =
+        game.info.name.toUpperCase() +
+        ' - ' +
+        game.info.description +
+        ' - ' +
+        game.info.price;
     }
     gameEl.textContent = text;
     gameList.append(gameEl);
@@ -39,11 +41,7 @@ const addGameHandler = () => {
   const description = document.getElementById('description').value;
   const price = document.getElementById('price').value;
 
-  if (
-    name.trim() === '' ||
-    description.trim() === '' ||
-    price.trim() === ''
-  ) {
+  if (name.trim() === '' || description.trim() === '' || price.trim() === '') {
     alert('Invalid input!');
     return;
   }
@@ -51,7 +49,8 @@ const addGameHandler = () => {
   const newGame = {
     info: {
       name,
-      [description]: price,
+      description,
+      price,
     },
     id: Math.random().toString(),
     getUppercasedName: function () {
