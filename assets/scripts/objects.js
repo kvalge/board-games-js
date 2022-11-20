@@ -25,11 +25,11 @@ const renderGames = (filter = '') => {
     let text = '';
     for (const key in info) {
       text =
-        game.info.name.toUpperCase() +
+        game.getUppercasedName() +
         ' - ' +
-        game.info.description +
+        info.description +
         ' - ' +
-        game.info.price;
+        info.price;
     }
     gameEl.textContent = text;
     gameList.append(gameEl);
