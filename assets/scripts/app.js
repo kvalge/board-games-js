@@ -63,7 +63,12 @@ class ShoppingCart extends Component {
   }
 
   constructor(renderHookId) {
-    super(renderHookId);
+    super(renderHookId, false);
+    this.orderProducts = () => {
+      console.log('Ordering');
+      console.log(this.items);
+    };
+    this.render();
   }
 
   addProduct(product) {
@@ -78,6 +83,8 @@ class ShoppingCart extends Component {
     <h2>Total: \€${0}</h2>
     <button>Order Now!</button>
     `;
+    const orderButton = cartEl.querySelector('button');
+    orderButton.addEventListener('click', this.orderProducts);
     this.totalOutput = cartEl.querySelector('h2');
   }
 }
@@ -112,15 +119,16 @@ class ProductItem extends Component {
 }
 
 class ProductList extends Component {
-  products = [];
+  #products = [];
 
   constructor(renderHookId) {
-    super(renderHookId);
-    this.fetchProduct();
+    super(renderHookId, false);
+    this.render();
+    this.#fetchProduct();
   }
 
-  fetchProduct() {
-    this.products = [
+  #fetchProduct() {
+    this.#products = [
       new Product(
         'Chess',
         'https://cdn.pixabay.com/photo/2020/01/26/10/33/chess-4794265_1280.jpg',
@@ -138,7 +146,7 @@ class ProductList extends Component {
   }
 
   renderProducts() {
-    for (const prod of this.products) {
+    for (const prod of this.#products) {
       new ProductItem(prod, 'prod-list');
     }
   }
@@ -147,7 +155,7 @@ class ProductList extends Component {
     this.createRootElement('ul', 'product-list', [
       new ElementAttribut('id', 'prod-list'),
     ]);
-    if (this.products && this.products.length > 0) {
+    if (this.#products && this.#products.length > 0) {
       this.renderProducts();
     }
   }
